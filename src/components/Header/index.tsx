@@ -18,7 +18,10 @@ const ListItem = styled.div`
 export const Header = () => {
     return (
         <NavBar>
-            <img src="./logo.svg" alt="logo" />
+            <h2 style={{ display: 'flex', alignItems: 'center' }}>
+                <img src="./logo.svg" alt="logo" />
+                <span style={{marginLeft: 5 }}>SC.</span>
+            </h2>
             <NavList>
                 <ListItem>New arrivals</ListItem>
                 <ListItem>Men</ListItem>

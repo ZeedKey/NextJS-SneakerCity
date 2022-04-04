@@ -7,7 +7,7 @@ export const BrandList: FC = () => {
         <>
             <h4>Brand</h4>
             <div style={{ borderBottom: "1px solid rgba(0, 0, 0, 0.15)" }}>
-                {brandsArr.map(e => <Checkbox brand={e} />)}
+                {brandsArr.map(e => <Checkbox brand={e} key={e}/>)}
             </div>
         </>
     );
