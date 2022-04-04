@@ -15,13 +15,13 @@ const ListItem = styled.div`
     display: flex;
 `
 
-export const Header = () => {
+export const Header: React.FC = () => {
     return (
         <NavBar>
-            <h2 style={{ display: 'flex', alignItems: 'center' }}>
+            <h1 style={{ display: 'flex', alignItems: 'center', margin: 0 }}>
                 <img src="./logo.svg" alt="logo" />
                 <span style={{marginLeft: 5 }}>SC.</span>
-            </h2>
+            </h1>
             <NavList>
                 <ListItem>New arrivals</ListItem>
                 <ListItem>Men</ListItem>

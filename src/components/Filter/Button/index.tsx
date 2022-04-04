@@ -10,7 +10,7 @@ const SizeButton = styled.div`
     border: 1px solid rgba(0, 0, 0, 0.15);
     max-width: 18px;
     max-height: 18px;
-    margin: 0.75rem 0.75rem 0.75rem 0;
+    margin: 0 0.75rem 0.75rem 0;
     border-radius: 8px;
 `
 

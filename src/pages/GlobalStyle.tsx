@@ -31,4 +31,8 @@ export const GlobalStyle = createGlobalStyle`
     *{
         font-family: Open Sans Regular;
     }
+    p{
+        margin: 0;
+        color: grey;
+    }
 `

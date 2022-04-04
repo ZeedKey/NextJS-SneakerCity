@@ -10,7 +10,7 @@ export const fakeAPI = createApi({
     endpoints: (build) => ({
         getAllProducts: build.query({
             query: () => ({
-                url: '/',
+                url: `/category/women's clothing`,
                 method: 'GET',
             })
         }),
