@@ -15,9 +15,10 @@ const Container = styled.div`
 export const Card: FC<IProduct> = (props) => {
     const [isOpen, setOpen] = useState<boolean>(false);
     const doOpenModal = () => setOpen(true);
+    const doCloseModal = () => setOpen(false);
     return (
         <>
-        {isOpen && <ProductModal {...props}/>}
+        {isOpen && <ProductModal {...props} onClose = {doCloseModal}/>}
         <Container onClick={doOpenModal}>
             <Image src={props.image} alt="brandName" width="270" height="300" style={{ background: "rgba(0, 0, 0, 0.04);" }} />
             <h5 style={{ marginBottom: "-8px", width: "100%", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{props.title}</h5>

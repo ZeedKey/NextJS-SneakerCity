@@ -5,10 +5,8 @@ import Image from "next/image"
 import { AddToCart } from "../AddToCart"
 import { IProduct } from "../../model/product"
 
-interface IModal {
-    title: string
-    description?: string
-    image: string
+interface IModal extends IProduct {
+    onClose : any
 }
 interface IContainer {
     left?: boolean
@@ -35,7 +33,7 @@ const Desc = styled.p`
 `
 
 
-export const ProductModal: React.FC<IProduct> = (props) => {
+export const ProductModal: React.FC<IModal> = (props) => {
     return (
         <Modal>
             <Container left>
@@ -48,7 +46,10 @@ export const ProductModal: React.FC<IProduct> = (props) => {
                 </ContainerBody>
             </Container>
             <Container>
-                <h4>Description</h4>
+                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                    <h4>Description</h4>
+                    <Image src="/close.svg" width="15" height="15" alt="productBrand" onClick={props.onClose}/>
+                </div>
                 <Desc>{props.description}</Desc>
                 <SizeButtonList />
                 <AddToCart {...props}/>

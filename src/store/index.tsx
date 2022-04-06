@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
 
 export const store = configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(fakeAPI.middleware)
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }).concat(fakeAPI.middleware)
 })
 
 export type RootState = ReturnType<typeof store.getState>

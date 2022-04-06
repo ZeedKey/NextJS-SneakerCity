@@ -5,20 +5,24 @@ import { Loader } from '../../Loader';
 import styled from "styled-components"
 import { IProduct } from '../../../model/product';
 
-const Container = styled.div`
+const CardContainer = styled.div`
     display: grid;
     gap: 1.5rem;
     grid-template-columns: repeat(auto-fill, 13.75rem);
     margin-left: 4rem;
 `
+
+const Container = styled.div`
+    grid-area: cards; 
+`
 export const CardList = () => {
     const { data, isLoading, isFetching, isError } = fakeAPI.useGetAllProductsQuery('');
     return (
-        <>
-            <Container>
+        <Container>
+            <CardContainer>
                 {data && data.map((prod: IProduct) => <Card {...prod} key={prod.id}/>)}
-            </Container>
+            </CardContainer>
             {isFetching && <Loader />}
-        </>
+        </Container>
     )
 }

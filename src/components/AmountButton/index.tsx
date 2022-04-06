@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import styled from 'styled-components'
 
 const Counter = styled.div`
@@ -34,6 +35,13 @@ interface IAmountButton {
     setState: any
 }
 export const AmountButton: React.FC<IAmountButton> = ({ state, setState }) => {
+
+    useEffect(() => {
+        if (state <= 0) {
+            setState(1);
+        }
+    }, [state])
+
     const handleDecrease = () => setState(state - 1);
     const handleIncrease = () => setState(state + 1);
     return (

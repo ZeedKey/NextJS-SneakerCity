@@ -1,3 +1,5 @@
+import Image from 'next/image'
+import { useRouter } from 'next/router'
 import styled from 'styled-components'
 
 const NavBar = styled.div`
@@ -14,13 +16,20 @@ const NavList = styled.div`
 const ListItem = styled.div`
     display: flex;
 `
-
+const size = {
+    width: '25px',
+    height: '25px',
+};
 export const Header: React.FC = () => {
+    const router = useRouter()
+    const toHome = () => router.push('/')
+    const toCart = () => router.push('/Cart')
+
     return (
         <NavBar>
-            <h1 style={{ display: 'flex', alignItems: 'center', margin: 0 }}>
+            <h1 style={{ display: 'flex', alignItems: 'center', margin: 0 }} onClick={toHome}>
                 <img src="./logo.svg" alt="logo" />
-                <span style={{marginLeft: 5 }}>SC.</span>
+                <span style={{ marginLeft: 5 }}>SC.</span>
             </h1>
             <NavList>
                 <ListItem>New arrivals</ListItem>
@@ -29,9 +38,9 @@ export const Header: React.FC = () => {
                 <ListItem>Kids</ListItem>
             </NavList>
             <NavList>
-                <img src="./cart.svg" alt="cart" />
-                <img src="./heart.svg" alt="heart" />
-                <img src="./user.svg" alt="user" />
+                <Image {...size} src="/cart.svg" alt="cart" onClick={toCart} />
+                <Image {...size} src="/heart.svg" alt="cart" />
+                <Image {...size} src="/user.svg" alt="cart" />
             </NavList>
         </NavBar>
     )

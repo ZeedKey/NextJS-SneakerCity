@@ -10,4 +10,5 @@ export interface IProduct {
     rating: IRating
     image: string
     category: string
+    amount?: number
 }
