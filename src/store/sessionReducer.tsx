@@ -2,13 +2,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IProduct } from "../model/product";
 
 export interface SessionState {
-  apiData: any[],
   userCart: IProduct[],
+  totalSum: number
 }
 
 const initialState: SessionState = {
-  apiData: [],
   userCart: [],
+  totalSum: 0
 };
 
 export const sessionSlice = createSlice({
@@ -26,10 +26,10 @@ export const sessionSlice = createSlice({
         return e;
       })
     },
-    remProduct: (state: SessionState, action: any) => {
-      state.apiData = action.payload;
+    updateTotalSum: (state: SessionState, action: PayloadAction<number>) => {
+      state.totalSum = action.payload;
     },
   },
 });
-export const { addProduct, updateProduct } = sessionSlice.actions;
+export const { addProduct, updateProduct, updateTotalSum } = sessionSlice.actions;
 export default sessionSlice.reducer;

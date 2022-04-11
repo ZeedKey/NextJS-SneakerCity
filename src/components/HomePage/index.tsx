@@ -1,30 +1,22 @@
-import { Layout } from "../Layout"
-import { BrandList } from "../Lists/Brands"
-import { PriceRangeList } from "../Lists/PriceRange"
-import { SizeButtonList } from "../Lists/SizeButtons"
-import styled from "styled-components"
-import { CardList } from "../Lists/Cards"
-import { Footer } from "../Footer"
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
+import { useFetch } from "../hooks/useFetch";
+import { HomePageLayout } from "./Layout";
+import { CardList } from "./Layout/Lists";
 
-const Container = styled.div`
-    display:grid;
-    grid-template-areas: 
-    "brand cards" 
-    "range cards"
-    "buttons cards"
-    "buttons footer";
-    grid-template-columns: 15% 85%;
-`
+
 export const HomePage: React.FC = () => {
+    const {getData} = useFetch()
+    useEffect(()=>{
+        const [trigger, result] = getData();
+        trigger('')
+        console.log(result)
+    },[])
+    const userData = useSelector((store: RootState) => store.apiReducer.userData);
     return (
-        <Layout>
-            <Container>
-                <BrandList />
-                <PriceRangeList />
-                <SizeButtonList />
-                <CardList />
-                <Footer/>
-            </Container>
-        </Layout>
-    )
-}
+        <HomePageLayout>
+            <CardList data={userData}/>
+        </HomePageLayout>
+    );
+};

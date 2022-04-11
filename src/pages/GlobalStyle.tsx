@@ -24,9 +24,9 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     html, body {
-        height: 100vh;
         margin: 0;
         padding: 0;
+        overflow: hidden;
     }
 
     *{
@@ -36,4 +36,5 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         color: grey;
     }
+    
 `
