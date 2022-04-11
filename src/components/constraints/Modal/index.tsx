@@ -1,40 +1,34 @@
-import React, { FC } from "react"
-import styled from "styled-components"
+import styled from "styled-components";
 
-const ModalWindow = styled.div`
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    overflow-y: hidden;
-    z-index: 1;
-`
-const Body = styled.div`
-    background: white;
-    width: 100%;
-    height: 100%;
-    border: 1px solid black;
-    display: grid;
-    grid-template-columns: 70% 30%;
+const Box = styled.div`
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.04);
+`;
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 75% 25%;
+`;
+const ImageBlock = styled.div`
+  display: grid;
+  grid-template-columns: 75% 25%;
+`;
+const AsideBlock = styled.div`
+  background: white;
+  height: 100vh;
+`;
 
-    @media (max-width: 1340px) {
-        grid-template-columns: none;
-  }
-`
-
-
-export const Modal: FC<React.ReactNode> = ({ children }) => {
-    return (
-        <ModalWindow>
-            <Body>
-                {children}
-            </Body>
-        </ModalWindow>
-    )
-}
+export const Modal: React.FC = () => {
+  return (
+    <Box>
+      <Grid>
+        <ImageBlock>1</ImageBlock>
+        <AsideBlock>1</AsideBlock>
+      </Grid>
+    </Box>
+  );
+};

@@ -1,69 +1,63 @@
-import Image from "next/image";
-import { useRouter } from "next/router";
 import styled from "styled-components";
+import Image from "next/image";
 
-const NavBar = styled.header`
+const Box = styled.header`
   display: flex;
-  padding: 1.75rem 3.938rem;
-  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  @media (max-width: 768px) {
-    gap:2rem;
-    flex-direction: column;
-        padding: 0.5rem;
+  padding: 1rem 2rem;
+  justify-content: space-between;
+
+  ul {
+    cursor: pointer;
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
   }
 `;
-const NavList = styled.div`
+const Logo = styled.div`
+  cursor: pointer;
   display: flex;
-  gap: 2rem;
-  @media (max-width: 768px) {
-      align-items: center;
-      gap: 2rem;
-      flex-direction: column;
-  }
+  align-items: center;
 `;
-const ListItem = styled.div`
-  display: flex;
+const Brand = styled.span`
+  font-size: 3.5ch;
+  font-weight: bold;
+  margin-left: 0.5rem;
 `;
-const Brand = styled.h1`
-  display: flex;
-  margin: -8px;
-`;
-const size = {
-  width: "25px",
-  height: "25px",
+const LOGO_ATTR = {
+  alt: "logo",
+  src: "/logo.svg",
+  height: 50,
+  width: 50,
 };
-
+const ICONS_SIZE = {
+  height: 25,
+  width: 25,
+};
 export const Header: React.FC = () => {
-  const router = useRouter();
-  const toHome = () => router.push("/");
-  const toCart = () => router.push("/Cart");
-
-  const fetchPage = (e: any) => router.push(e.target.id);
-
   return (
-    <NavBar>
-      <Brand onClick={toHome}>
-        <img src="./logo.svg" alt="logo" />
-        <span style={{ marginLeft: 5 }}>SC.</span>
-      </Brand>
-      <NavList>
-        <ListItem id="/" onClick={fetchPage}>
-          All
-        </ListItem>
-        <ListItem id="/Mens" onClick={fetchPage}>
-          Men
-        </ListItem>
-        <ListItem id="/Womens" onClick={fetchPage}>
-          Woman
-        </ListItem>
-      </NavList>
-      <NavList style={{flexDirection: 'row'}}>
-        <Image {...size} src="/cart.svg" alt="cart" onClick={toCart} />
-        <Image {...size} src="/heart.svg" alt="cart" />
-        <Image {...size} src="/user.svg" alt="cart" />
-      </NavList>
-    </NavBar>
+    <Box>
+      <Logo>
+        <Image {...LOGO_ATTR} />
+        <Brand>SC</Brand>
+      </Logo>
+      <ul>
+        <li>All</li>
+        <li>Mens</li>
+        <li>Womens</li>
+      </ul>
+      <ul>
+        <li>
+          <Image alt="cart" src="/cart.svg" {...ICONS_SIZE} />
+        </li>
+        <li>
+          <Image alt="heart" src="/heart.svg" {...ICONS_SIZE} />
+        </li>
+        <li>
+          <Image alt="user" src="/user.svg" {...ICONS_SIZE} />
+        </li>
+      </ul>
+      {/* <hr/> */}
+    </Box>
   );
 };

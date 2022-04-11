@@ -1,11 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { fakeAPI } from './api'
-import apiReducer from './apiReducer'
+import { fakeAPI } from './query'
 import sessionReducer from './sessionReducer'
 
 const rootReducer = combineReducers({
     sessionReducer,
-    apiReducer,
     [fakeAPI.reducerPath]: fakeAPI.reducer,
 })
 

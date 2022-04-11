@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IProduct } from "../model/product";
+import { IProduct } from "../components/models/product";
 
 export interface SessionState {
   userCart: IProduct[],
