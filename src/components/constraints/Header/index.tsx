@@ -9,21 +9,21 @@ const NavBar = styled.header`
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   @media (max-width: 768px) {
-    gap:2rem;
+    gap: 2rem;
     flex-direction: column;
-        padding: 0.5rem;
+    padding: 0.5rem;
   }
 `;
 const NavList = styled.div`
   display: flex;
   gap: 2rem;
   @media (max-width: 768px) {
-      align-items: center;
-      gap: 2rem;
-      flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    flex-direction: column;
   }
 `;
-const ListItem = styled.div`
+const Item = styled.div`
   display: flex;
 `;
 const Brand = styled.h1`
@@ -39,30 +39,29 @@ export const Header: React.FC = () => {
   const router = useRouter();
   const toHome = () => router.push("/");
   const toCart = () => router.push("/Cart");
-
-  const fetchPage = (e: any) => router.push(e.target.id);
+  const fetchPage = (e: React.FormEvent) => router.push(e.currentTarget.id);
 
   return (
     <NavBar>
       <Brand onClick={toHome}>
-        <img src="./logo.svg" alt="logo" />
+        <Image {...size} src="/logo.svg" alt="logo" />
         <span style={{ marginLeft: 5 }}>SC.</span>
       </Brand>
       <NavList>
-        <ListItem id="/" onClick={fetchPage}>
+        <Item id="/" onClick={fetchPage}>
           All
-        </ListItem>
-        <ListItem id="/Mens" onClick={fetchPage}>
+        </Item>
+        <Item id="/Mens" onClick={fetchPage}>
           Men
-        </ListItem>
-        <ListItem id="/Womens" onClick={fetchPage}>
-          Woman
-        </ListItem>
+        </Item>
+        <Item id="/Womens" onClick={fetchPage}>
+          Women
+        </Item>
       </NavList>
-      <NavList style={{flexDirection: 'row'}}>
+      <NavList style={{ flexDirection: "row" }}>
         <Image {...size} src="/cart.svg" alt="cart" onClick={toCart} />
-        <Image {...size} src="/heart.svg" alt="cart" />
-        <Image {...size} src="/user.svg" alt="cart" />
+        <Image {...size} src="/heart.svg" alt="heart" />
+        <Image {...size} src="/user.svg" alt="user" />
       </NavList>
     </NavBar>
   );

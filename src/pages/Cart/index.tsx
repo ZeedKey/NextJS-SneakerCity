@@ -1,7 +1,8 @@
-import { CartPage } from "../../components/CartPage"
+import { NextPage } from "next";
+import { CartPage } from "../../components";
 
-const Cart: React.FC = () => {
-    return <CartPage />
-}
+const Cart: NextPage = () => {
+  return <CartPage />;
+};
 
 export default Cart;

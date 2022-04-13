@@ -1,11 +1,9 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { IProduct } from "../../../model/product";
+import { useCart } from "../../hooks/useCart";
+import { AmountButton } from "../AmountButton";
 import Image from "next/image";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { RootState } from "../../../store";
-import { AmountButton } from "../../constraints";
-import { updateProduct, updateTotalSum } from "../../../store/sessionReducer";
 
 const Container = styled.div`
   background-color: rgba(0, 0, 0, 0.04);
@@ -22,6 +20,9 @@ const Container = styled.div`
     }
   }
 `;
+const Box = styled.div`
+  display: flex;
+`;
 const Title = styled.h3`
   @media (max-width: 768px) {
     display: none;
@@ -34,33 +35,30 @@ const Title = styled.h3`
 
 export const CartItem: React.FC<IProduct> = (props) => {
   const [amount, setAmount] = useState<number>(props.amount || 1);
-  const userCart = useSelector(
-    (state: RootState) => state.sessionReducer.userCart
-  );
-  const dispatch = useDispatch();
+  const { cart, updateCart, setSum } = useCart();
   useEffect(() => {
-    dispatch(updateProduct({ ...props, amount: amount }));
-    const sum: any = userCart
+    updateCart({ ...props, amount: amount });
+    const sum: number = cart
       .map((e) => e.price * e.amount)
       .reduce((prev, next) => prev + next);
-    dispatch(updateTotalSum(sum));
+    setSum(sum);
   });
 
   return (
     <Container>
-      <div style={{ display: "flex" }}>
+      <Box>
         <Image src={props.image} alt="item_image" width="85" height="85" />
         <div style={{ marginLeft: "2rem" }}>
           <Title>{props.title}</Title>
           <h4>{props.price}RWF</h4>
         </div>
-      </div>
-      <div>
+      </Box>
+      <Box>
         <AmountButton state={amount} setState={setAmount} />
-      </div>
-      <div>
+      </Box>
+      <Box>
         <h3 style={{ minWidth: "5rem" }}>{props.price * props.amount}RWF</h3>
-      </div>
+      </Box>
     </Container>
   );
 };

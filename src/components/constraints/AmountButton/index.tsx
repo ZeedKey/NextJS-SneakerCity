@@ -14,10 +14,11 @@ const Counter = styled.div`
   height: 1rem;
   margin: 0 1rem;
 `;
-const Container = styled.div`
+const Box = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 1rem;
   button {
     padding: 0;
     margin: 0;
@@ -32,22 +33,24 @@ const Container = styled.div`
 
 interface IAmountButton {
   state: number;
-  setState: any;
+  setState: (value: number) => void;
 }
 export const AmountButton: React.FC<IAmountButton> = ({ state, setState }) => {
-  useEffect(() => {
-    if (state <= 0) {
-      setState(1);
-    }
-  }, [state]);
+  const handleDecrease = () => (state <= 0 ? setState(1) : setState(state - 1));
+  const handleIncrease = () => (state <= 0 ? setState(1) : setState(state + 1));
 
-  const handleDecrease = () => setState(state - 1);
-  const handleIncrease = () => setState(state + 1);
+  useEffect(() => {
+    if (state < 1) setState(1);
+  }, [state, setState]);
   return (
-    <Container>
-      <button onClick={handleDecrease}>-</button>
+    <Box>
+      <button id="-" onClick={handleDecrease}>
+        -
+      </button>
       <Counter>{state}</Counter>
-      <button onClick={handleIncrease}>+</button>
-    </Container>
+      <button id="+" onClick={handleIncrease}>
+        +
+      </button>
+    </Box>
   );
 };
