@@ -6,7 +6,7 @@ const Counter = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: GoogleSans Medium;
+  font-weight: bold;
   color: rgba(0, 0, 0, 0.65);
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 8px;

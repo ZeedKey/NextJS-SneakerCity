@@ -42,7 +42,6 @@ const Price = styled.div`
   color: black;
   font-weight: bold;
   font-size: 14px;
-  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
   padding: 4px;
   border-radius: 5px;
 `;

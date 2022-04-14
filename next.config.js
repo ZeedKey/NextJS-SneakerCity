@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     domains: ["https://fakestoreapi.com/img", "fakestoreapi.com"],
   },
+  styledComponents: true,
 };
 
 module.exports = nextConfig;

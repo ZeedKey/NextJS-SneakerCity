@@ -1,19 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-    @font-face {
-        font-family: GoogleSans Regular;
-        src: url('./fonts/GoogleSans-Regular.ttf');
-    }
-    @font-face {
-        font-family: GoogleSans Medium;
-        src: url('./fonts/GoogleSans-Medium.ttf');
-    }
-    @font-face {
-        font-family: GoogleSans Bold;
-        src: url('./fonts/GoogleSans-Bold.ttf');
-    }
-
     input[type=range] {
 	position: absolute;
 	pointer-events: none;
@@ -40,7 +27,7 @@ input[type=range]::-webkit-slider-thumb {
     }
 
     *{
-        font-family: GoogleSans Regular;
+        font-family: 'Product Sans', sans-serif;
     }
     p{
         margin: 0;

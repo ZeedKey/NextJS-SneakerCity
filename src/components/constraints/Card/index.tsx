@@ -13,7 +13,7 @@ const Title = styled.h4`
   white-space: nowrap;
 `;
 const Price = styled.p`
-  font-family: GoogleSans Bold;
+  font-weight: bold;
 `;
 
 const PRODUCT_IMG_ATTRS = {

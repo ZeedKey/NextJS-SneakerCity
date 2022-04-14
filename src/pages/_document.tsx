@@ -18,10 +18,7 @@ export default class MyDocument extends Document {
         ...initialProps,
         styles: (
           <>
-            <link
-              rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-            />
+            <link href="http://fonts.cdnfonts.com/css/google-sans" rel="stylesheet"/>
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>

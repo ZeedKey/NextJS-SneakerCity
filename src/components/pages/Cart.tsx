@@ -36,7 +36,7 @@ export const CartPage: React.FC = () => {
         <div>
           <Title>Your shopping cart</Title>
           {cart.map((element: IProduct) => (
-            <CartItem {...element} key={element.title} />
+            <CartItem {...element} key={element.id} />
           ))}
         </div>
         <Block>
