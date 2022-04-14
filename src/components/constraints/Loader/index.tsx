@@ -15,7 +15,6 @@ const Box = styled.div`
   right: 0;
   margin: auto;
   display: flex;
-  /* background: rgba(196, 196, 196, 0.3); */
   justify-content: center;
   align-items: center;
   pointer-events: none;

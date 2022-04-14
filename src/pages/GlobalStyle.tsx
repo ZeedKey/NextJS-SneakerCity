@@ -1,26 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-
     @font-face {
-        font-family: Open Sans Light;
-        src: url('./fonts/OpenSans-Light.ttf');
+        font-family: GoogleSans Regular;
+        src: url('./fonts/GoogleSans-Regular.ttf');
     }
     @font-face {
-        font-family: Open Sans Regular;
-        src: url('./fonts/OpenSans-Regular.ttf');
+        font-family: GoogleSans Medium;
+        src: url('./fonts/GoogleSans-Medium.ttf');
     }
     @font-face {
-        font-family: Open Sans Medium;
-        src: url('./fonts/OpenSans-Medium.ttf');
-    }
-    @font-face {
-        font-family: Open Sans SemiBold;
-        src: url('./fonts/OpenSans-SemiBold.ttf');
-    }
-    @font-face {
-        font-family: Open Sans Bold;
-        src: url('./fonts/OpenSans-Bold.ttf');
+        font-family: GoogleSans Bold;
+        src: url('./fonts/GoogleSans-Bold.ttf');
     }
 
     input[type=range] {
@@ -49,7 +40,7 @@ input[type=range]::-webkit-slider-thumb {
     }
 
     *{
-        font-family: Open Sans Regular;
+        font-family: GoogleSans Regular;
     }
     p{
         margin: 0;

@@ -7,9 +7,6 @@ export const HomePage: React.FC = () => {
   useEffect(() => {
     trigger("");
   }, []);
-  useEffect(() => {
-    console.log(rawData);
-  });
   return (
     <LayoutPage
       title={"New Arrivals"}
