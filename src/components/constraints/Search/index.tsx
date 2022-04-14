@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Input = styled.input`
   padding: 0.5rem;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 `;
 
 interface ISearchProps {

@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 const NavBar = styled.header`
   display: flex;
-  padding: 1.75rem 3.938rem;
   justify-content: space-between;
+  padding: 1.75rem 3.938rem;
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   @media (max-width: 768px) {
@@ -25,10 +25,12 @@ const NavList = styled.div`
 `;
 const Item = styled.div`
   display: flex;
+  cursor: pointer;
 `;
 const Brand = styled.h1`
   display: flex;
   margin: -8px;
+  cursor: pointer;
 `;
 const size = {
   width: "25px",

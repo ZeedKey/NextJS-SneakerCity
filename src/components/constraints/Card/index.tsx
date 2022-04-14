@@ -5,6 +5,7 @@ import { useState } from "react";
 import { IProduct } from "../../../model/product";
 const Box = styled.div`
   width: 100%;
+  height: 100%;
 `;
 const Title = styled.h4`
   text-overflow: ellipsis;
@@ -12,12 +13,12 @@ const Title = styled.h4`
   white-space: nowrap;
 `;
 const Price = styled.p`
-  font-family: Open Sans SemiBold;
+  font-family: GoogleSans Bold;
 `;
 
 const PRODUCT_IMG_ATTRS = {
-  width: "200rem",
-  height: "200rem",
+  width: "450rem",
+  height: "450rem",
 };
 export const Card: React.FC<IProduct> = (props) => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);

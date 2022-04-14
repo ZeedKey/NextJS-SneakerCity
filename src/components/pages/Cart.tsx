@@ -23,6 +23,10 @@ const Table = styled.p`
 const Item = styled.h3`
   color: black;
 `;
+const Title = styled.h2`
+  margin: 0 -8px;
+  padding: 0;
+`;
 
 export const CartPage: React.FC = () => {
   const { cart, sum } = useCart();
@@ -30,7 +34,7 @@ export const CartPage: React.FC = () => {
     <Layout>
       <Box>
         <div>
-          <h2>Your shopping cart</h2>
+          <Title>Your shopping cart</Title>
           {cart.map((element: IProduct) => (
             <CartItem {...element} key={element.title} />
           ))}

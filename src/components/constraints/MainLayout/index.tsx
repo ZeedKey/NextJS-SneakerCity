@@ -5,25 +5,18 @@ import { IProduct } from "../../../model/product";
 import { DualRange } from "../Range";
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 15% 85%;
+  grid-template-columns: 20% 75%;
   @media (max-width: 1340px) {
     grid-template-columns: none;
   }
 `;
+const Title = styled.h3`
+  margin-left: -8px;
+`;
 const CardGrid = styled.div`
   display: grid;
-  gap: 1rem;
-  overflow-y: scroll;
-  height: 75vh;
-  grid-template-columns: repeat(auto-fill, minmax(200px, max-content));
-  grid-template-rows: repeat(auto-fill, minmax(300px, max-content));
-
-  @media (max-width: 1340px) {
-    height: 50vh;
-  }
-  @media (max-width: 768px) {
-    height: 35vh;
-  }
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(25rem, 15rem));
 `;
 const Box = styled.div`
   padding-right: 4rem;
@@ -57,17 +50,17 @@ export const LayoutPage: React.FC<ILayoutPageProps> = (props) => {
     <Layout>
       <Grid>
         <Box>
-          <h4>Search</h4>
+          <Title>Search</Title>
           <Search onChange={setSearchText} state={searchText} />
           <hr />
-          <h4>Price</h4>
+          <Title>Price</Title>
           <DualRange price={price} setPrice={setPrice} />
         </Box>
         <div>
           <h2>{props.title}</h2>
           <CardGrid>
             {filteredData.map((el: IProduct) => (
-              <Card {...el} key={el.title} />
+              <Card {...el} key={el.id} />
             ))}
           </CardGrid>
           <Footer />

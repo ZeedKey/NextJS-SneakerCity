@@ -51,7 +51,10 @@ const TextHide = styled(Image)<{ isHidden: boolean }>`
   transform: ${({ isHidden }) =>
     isHidden ? "rotate(180deg)" : "rotate(0deg)"};
 `;
-const Desc = styled.p<{ isHidden: boolean }>`
+const DescTitle = styled.div`
+  cursor: pointer;
+`;
+const DescText = styled.p<{ isHidden: boolean }>`
   margin: 0;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
@@ -108,7 +111,7 @@ export const Modal: React.FC<IModalProps> = (props) => {
         </Gallery>
         <Aside>
           <Title>
-            <div>
+            <DescTitle onClick={handleHideText}>
               Description
               <span style={{ margin: "1rem" }}>
                 <TextHide
@@ -116,10 +119,9 @@ export const Modal: React.FC<IModalProps> = (props) => {
                   src="/textHid.svg"
                   {...ICONS_ATTRS}
                   alt="hideText"
-                  onClick={handleHideText}
                 />
               </span>
-            </div>
+            </DescTitle>
             <Image
               onClick={handleClose}
               alt="icons_image"
@@ -127,7 +129,7 @@ export const Modal: React.FC<IModalProps> = (props) => {
               {...ICONS_ATTRS}
             />
           </Title>
-          <Desc isHidden={isTextHidden}>{props.product.description}</Desc>
+          <DescText isHidden={isTextHidden}>{props.product.description}</DescText>
           <Block>
             <AmountButton state={amount} setState={setAmount} />
             <Button onClick={handleAddProduct}>Add to cart</Button>
