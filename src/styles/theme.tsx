@@ -1,7 +1,3 @@
-enum FONT_FAMILY {
-  GOOGLE_SANS = 'Product Sans',
-  SANS_SERIF = 'sans-serif',
-}
 enum FONT_SIZES {
   SMALLER = "8px",
   SMALL = "14px",
