@@ -1,27 +1,30 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import styled from "styled-components";
 import { Card, Footer, Layout, Loader, Search } from "..";
 import { IProduct } from "../../../model/product";
 import { DualRange } from "../Range";
+import { down } from "styled-breakpoints";
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 20% 75%;
-  @media (max-width: 1340px) {
+  ${down("xl")} {
     grid-template-columns: none;
   }
-`;
-const Title = styled.h3`
-  margin-left: -8px;
 `;
 const CardGrid = styled.div`
   display: grid;
   gap: 24px;
-  grid-template-columns: repeat(3, minmax(25rem, 15rem));
+  grid-template-columns: repeat(4, minmax(0, 25rem));
+  grid-template-rows: repeat(auto-fill, minmax(0, 2rem));
+  ${down("md")} {
+    grid-template-columns: repeat(2, minmax(0, 25rem));
+  }
 `;
 const Box = styled.div`
   padding-right: 4rem;
 
-  @media (max-width: 768px) {
+  ${down("md")} {
     padding-right: 0;
   }
 `;
@@ -49,18 +52,18 @@ export const LayoutPage: React.FC<ILayoutPageProps> = (props) => {
   return (
     <Layout>
       <Grid>
-        <Box>
-          <Title>Search</Title>
+        <Box >
+          <h3>Search</h3>
           <Search onChange={setSearchText} state={searchText} />
           <hr />
-          <Title>Price</Title>
+          <h3>Price</h3>
           <DualRange price={price} setPrice={setPrice} />
         </Box>
         <div>
-          <h2>{props.title}</h2>
+          <h3>{props.title}</h3>
           <CardGrid>
             {filteredData.map((el: IProduct) => (
-              <Card {...el} key={el.id} />
+              <Card {...el} key={el.title} />
             ))}
           </CardGrid>
           <Footer />

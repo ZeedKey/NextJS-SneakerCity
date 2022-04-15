@@ -3,12 +3,14 @@ import { CartItem, Footer, Layout } from "../constraints";
 import { Button } from "../constraints/Button";
 import { useCart } from "../hooks/useCart";
 import { IProduct } from "../../model/product";
+import { down } from "styled-breakpoints";
+import { theme } from "../../styles";
 
 const Box = styled.div`
   display: grid;
   grid-template-columns: 80% 20%;
   height: 80vh;
-  @media (max-width: 1560px) {
+  ${down("xxl")} {
     grid-template-columns: none;
   }
 `;
@@ -17,14 +19,13 @@ const Block = styled.div`
 `;
 const Table = styled.p`
   display: flex;
-  font-size: 1.49ch;
+  font-size: ${(props) => props.theme.fontSizes.SMALL};
   justify-content: space-between;
 `;
 const Item = styled.h3`
-  color: black;
+  color: ${(props) => props.theme.colors.BLACK};
 `;
 const Title = styled.h2`
-  margin: 0 -8px;
   padding: 0;
 `;
 

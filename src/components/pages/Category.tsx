@@ -13,6 +13,8 @@ export const CategoryPage: React.FC<ICategoryPageProps> = (props) => {
   const routerMatch: IRoutesMatch = {
     "/Mens": `/category/men's clothing`,
     "/Womens": `/category/women's clothing`,
+    "/Jewelery": `/category/jewelery`,
+    "/Electronics": `/category/electronics`,
   };
   const title: string = props.path.replace("/", "");
 

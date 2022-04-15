@@ -13,7 +13,10 @@ const Title = styled.h4`
   white-space: nowrap;
 `;
 const Price = styled.p`
-  font-weight: bold;
+  font-weight: ${(props) => props.theme.fontWeights.BOLD};
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 const PRODUCT_IMG_ATTRS = {

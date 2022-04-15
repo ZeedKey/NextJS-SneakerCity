@@ -1,23 +1,24 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-
+import {down} from 'styled-breakpoints'
 const NavBar = styled.header`
   display: flex;
   justify-content: space-between;
-  padding: 1.75rem 3.938rem;
+  padding: 1.75rem 4.55rem;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  @media (max-width: 768px) {
+  ${down("md")} {
+    align-items: center;
     gap: 2rem;
     flex-direction: column;
-    padding: 0.5rem;
   }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 `;
 const NavList = styled.div`
   display: flex;
   gap: 2rem;
-  @media (max-width: 768px) {
+
+  ${down("md")} {
     align-items: center;
     gap: 2rem;
     flex-direction: column;
@@ -58,6 +59,12 @@ export const Header: React.FC = () => {
         </Item>
         <Item id="/Womens" onClick={fetchPage}>
           Women
+        </Item>
+        <Item id="/Jewelery" onClick={fetchPage}>
+          Jewelery
+        </Item>
+        <Item id="/Electronics" onClick={fetchPage}>
+          Electronics
         </Item>
       </NavList>
       <NavList style={{ flexDirection: "row" }}>

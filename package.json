@@ -16,6 +16,7 @@
     "react-dom": "18.0.0",
     "react-range": "^1.8.12",
     "react-redux": "^7.2.8",
+    "styled-breakpoints": "^11.0.5",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {

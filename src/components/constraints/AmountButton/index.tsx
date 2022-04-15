@@ -1,18 +1,22 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 
-const Counter = styled.div`
+const Counter = styled.input`
   padding: 0.75rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.65);
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  text-align: center;
+  font-size: ${(props) => props.theme.fontWeights.BOLD};
+  color: ${(props) => props.theme.colors.BLACK};
+  border: 1px solid  ${(props) => props.theme.colors.GREY};
   border-radius: 8px;
   width: 1rem;
   height: 1rem;
+
   margin: 0 1rem;
+  appearance: none;
+}
 `;
 const Box = styled.div`
   display: flex;
@@ -27,7 +31,7 @@ const Box = styled.div`
     color: inherit;
     background-color: transparent;
     cursor: pointer;
-    font-size: 3ch;
+    font-size: ${(props) => props.theme.fontSizes.MEDIUM};
   }
 `;
 
@@ -36,18 +40,25 @@ interface IAmountButton {
   setState: (value: number) => void;
 }
 export const AmountButton: React.FC<IAmountButton> = ({ state, setState }) => {
-  const handleDecrease = () => (state <= 0 ? setState(1) : setState(state - 1));
-  const handleIncrease = () => (state <= 0 ? setState(1) : setState(state + 1));
+  c;
+  const handleDecrease = () => setState(state - 1);
+  const handleIncrease = () => setState(state + 1);
+  const handlePriceChangeManually = (e: React.FormEvent<HTMLInputElement>) =>
+    setState(parseInt(e.currentTarget.value));
 
   useEffect(() => {
-    if (state < 1) setState(1);
+    if (state < 1 || state > 100 || !state) setState(1);
   }, [state, setState]);
   return (
     <Box>
       <button id="-" onClick={handleDecrease}>
         -
       </button>
-      <Counter>{state}</Counter>
+      <Counter
+        value={state}
+        onInput={handlePriceChangeManually}
+        type="number"
+      />
       <button id="+" onClick={handleIncrease}>
         +
       </button>

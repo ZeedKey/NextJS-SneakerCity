@@ -4,16 +4,19 @@ import { IProduct } from "../../../model/product";
 import { useCart } from "../../hooks/useCart";
 import { AmountButton } from "../AmountButton";
 import Image from "next/image";
+import { down } from "styled-breakpoints";
+import { theme } from "../../../styles";
 
 const Container = styled.div`
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: ${(props) => props.theme.colors.BEIGE};
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 1rem;
   padding: 2rem;
   gap: 2rem;
-  @media (max-width: 768px) {
+
+  ${down("md")} {
     flex-direction: column;
     h3 {
       display: none;
@@ -24,7 +27,7 @@ const Box = styled.div`
   display: flex;
 `;
 const Title = styled.h3`
-  @media (max-width: 768px) {
+  ${down("md")} {
     display: none;
   }
   white-space: nowrap;
@@ -50,14 +53,16 @@ export const CartItem: React.FC<IProduct> = (props) => {
         <Image src={props.image} alt="item_image" width="85" height="85" />
         <div style={{ marginLeft: "2rem" }}>
           <Title>{props.title}</Title>
-          <h4>{props.price}RWF</h4>
+          <p>{props.price}RWF</p>
         </div>
       </Box>
       <Box>
         <AmountButton state={amount} setState={setAmount} />
       </Box>
       <Box>
-        <h3 style={{ minWidth: "5rem" }}>{props.price * props.amount}RWF</h3>
+        <h3 style={{ minWidth: "15rem", textAlign: "right" }}>
+          {props.price * props.amount}RWF
+        </h3>
       </Box>
     </Container>
   );

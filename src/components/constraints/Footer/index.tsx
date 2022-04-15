@@ -1,26 +1,31 @@
 import Image from "next/image";
 import styled from "styled-components";
 
-const Deals = styled.p`
+const Head = styled.p`
   display: flex;
   align-items: center;
-  margin:32px 0;
+  margin: 32px 0;
 `;
-const Support = styled.p`
-  margin: -24px 0;
+const FooterStyled = styled.footer`
+  margin: 5rem 0 0 0;
 `;
 const Icons = styled.div`
   display: flex;
   gap: 10px;
   margin-left: 15px;
 `;
+const Tail = styled.div`
+  display: flex;
+  margin: -24px 0 32px 0;
+  justify-content: space-between;
+`;
 
 interface IFooterProps {}
 export const Footer: React.FC<IFooterProps> = () => {
   return (
-    <footer>
+    <FooterStyled>
       <hr />
-      <Deals>
+      <Head>
         Don’t missout on once-in-a-while-deals:
         <Icons>
           <Image src="/twitter.svg" width="40" height="40" alt="productBrand" />
@@ -32,8 +37,12 @@ export const Footer: React.FC<IFooterProps> = () => {
             alt="productBrand"
           />
         </Icons>
-      </Deals>
-      <Support>Support line: +250 788 467 808</Support>
-    </footer>
+      </Head>
+
+      <Tail>
+        <p>Support line: +250 788 467 808</p>
+        <p>Copyright 2021 © Sneaker City ltd</p>
+      </Tail>
+    </FooterStyled>
   );
 };

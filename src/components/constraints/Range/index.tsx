@@ -1,5 +1,7 @@
 import { Range, getTrackBackground } from "react-range";
 import styled from "styled-components";
+import { down } from "styled-breakpoints";
+import { theme } from "../../../styles";
 const STEP = 0.1;
 const MIN = 0;
 const MAX = 1000;
@@ -18,7 +20,16 @@ const StyledRange = styled(Range)`
 const Track = styled.div`
   height: 36px;
   display: flex;
-  width: 100%;
+  width: 95.5%;
+  ${down("lg")} {
+    width: 97.5%;
+  }
+  ${down("md")} {
+    width: 96.5%;
+  }
+  ${down("sm")} {
+    width: 93.5%;
+  }
 `;
 const Line = styled.div`
   height: 3px;
@@ -30,7 +41,7 @@ const Thumb = styled.div`
   height: 18px;
   width: 18px;
   border-radius: 25px;
-  background-color: black;
+  background-color: ${(props) => props.theme.colors.BLACK};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,9 +50,9 @@ const Thumb = styled.div`
 const Price = styled.div`
   position: absolute;
   top: 30px;
-  color: black;
-  font-weight: bold;
-  font-size: 14px;
+  color: ${(props) => props.theme.colors.BLACK};
+  font-weight: ${(props) => props.theme.fontWeights.BOLD};
+  font-size: ${(props) => props.theme.fontSizes.SMALL};
   padding: 4px;
   border-radius: 5px;
 `;
@@ -79,7 +90,7 @@ export const DualRange: React.FC<IRangeProps> = ({ price, setPrice }) => {
               style={{
                 background: getTrackBackground({
                   values: price,
-                  colors: ["#ccc", "black", "#ccc"],
+                  colors: [`#ccc`, `${theme.colors.BLACK}`, `#ccc`],
                   min: MIN,
                   max: MAX,
                   rtl: false,
