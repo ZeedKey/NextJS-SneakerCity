@@ -40,7 +40,6 @@ interface IAmountButton {
   setState: (value: number) => void;
 }
 export const AmountButton: React.FC<IAmountButton> = ({ state, setState }) => {
-  c;
   const handleDecrease = () => setState(state - 1);
   const handleIncrease = () => setState(state + 1);
   const handlePriceChangeManually = (e: React.FormEvent<HTMLInputElement>) =>
