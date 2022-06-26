@@ -42,7 +42,9 @@ export const CartItem: React.FC<IProduct> = (props) => {
   useEffect(() => {
     updateCart({ ...props, amount: amount });
     const sum: number = cart
-      .map((e) => e?.price * e?.amount)
+      .map((e) => {
+     return e ? e?.price * e?.amount : 0;
+    })
       .reduce((prev, next) => prev + next);
     setSum(sum);
   });
