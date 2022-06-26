@@ -41,9 +41,9 @@ export const CartItem: React.FC<IProduct> = (props) => {
   const { cart, updateCart, setSum } = useCart();
   useEffect(() => {
     updateCart({ ...props, amount: amount });
-    const sum: number = cart
+    const sum: number = cart?
       .map((e) => {
-     return e ? e?.price * e?.amount : 0;
+     return e !== undefined? e?.price * e?.amount : 0;
     })
       .reduce((prev, next) => prev + next);
     setSum(sum);
